@@ -46,7 +46,7 @@ internal fun <S : Any> newRequestBody(
           sink = sink,
           messageAdapter = requestAdapter,
           callForCancel = null,
-          grpcEncoding = "gzip"
+          grpcEncoding = "identity"
       )
       grpcMessageSink.use {
         it.write(onlyMessage)
@@ -71,7 +71,7 @@ internal fun <S : Any> PipeDuplexRequestBody.messageSink(
     sink = createSink(),
     messageAdapter = requestAdapter,
     callForCancel = callForCancel,
-    grpcEncoding = "gzip"
+    grpcEncoding = "identity"
 )
 
 /** Sends the response messages to the channel. */
